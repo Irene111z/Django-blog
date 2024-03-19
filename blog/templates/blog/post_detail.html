@@ -1,13 +1,23 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
+    <div class="content d-flex flex-column">
+        <div class="d-flex flex-row justify-content-between align-items-center post-title mb-3">
+            <h1>{{ post.title }}</h1>
+            {% if post.published_date %}
+                <p class="publish-date d-flex align-self-end">{{ post.published_date }}</p>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+        <div class="d-flex mb-3">
+            <a href="{% url 'post_edit' pk=post.pk %}" class="btn-style">Tap to edit<span class="glyphicon glyphicon-pencil"></span></a>
+        </div>
         {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div class="d-flex mb-3">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="" class="post-img mb-3 me-3">
+            {% endif %}
+            <p class="post-text mt-4">{{ post.text|linebreaksbr }}</p>
+        </div>
     </div>
 {% endblock %}

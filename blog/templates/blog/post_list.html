@@ -4,10 +4,12 @@
     {% for post in posts %}
         <div class="content">
             <div class="d-flex flex-row justify-content-between align-items-center post-title">
-                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <h1 class="white-link"><a href="{% url 'post_detail' pk=post.pk %}" >{{ post.title }}</a></h1>
                 <p class="publish-date d-flex align-self-end">{{ post.published_date }}</p>
             </div>
+            {% if post.image %}
             <img src="{{ post.image.url }}" alt="" class="post-img my-3 me-3">
+            {% endif %}
             <p class="post-text mt-4">{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}

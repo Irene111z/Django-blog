@@ -17,6 +17,11 @@
         My blog. Posts
     </div>
 </header>
+<div>
+    {% if user.is_authenticated %}
+    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% endif %}
+</div>
 {% block content %}
 {% endblock %}
 </body>
