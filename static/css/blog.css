@@ -46,11 +46,17 @@ button{
     height:300px;
     float: left;
 }
-.btn-style{
+.btn-style,{
     border: solid 1px rgb(0, 86, 21);
     text-decoration: none;
     color: rgb(0, 86, 21);
     font-size: 20px;
     padding: 5px;
+
+}
+.btn-add{
+width:50px;
+background-color:#FFF;
+text-align:center;
 
 }

@@ -12,16 +12,16 @@
     <title>Document</title>
 </head>
 <body>
-<header class="header d-flex flex-row align-items-center">
+<header class="header d-flex flex-row align-items-center justify-content-between">
     <div>
         My blog. Posts
     </div>
-</header>
-<div>
     {% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <div class="btn-add">
+            <a href="{% url 'post_new' %}">+</a>
+        </div>
     {% endif %}
-</div>
+</header>
 {% block content %}
 {% endblock %}
 </body>
